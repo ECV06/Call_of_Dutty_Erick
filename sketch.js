@@ -26,6 +26,12 @@ function preload(){
   gameOverImg = loadImage(gameOver.png);
   bgImg = loadImage("assets/bg.jpeg");
 
+  heart1 = loadImage("assets/heart_1.png");
+  heart2 = loadImage("assets/heart_2.png");
+  heart3 = loadImage("assets/heart_3.png");
+
+  tesoroImg = loadImage("assets/diamonds.png");
+
 }
 
 function setup() {
@@ -52,6 +58,10 @@ function setup() {
 
   laser_group = new Group();
   enemy_group = new Group();
+
+  tesoro = createSprite(displayWidth+1150, displayHeight-300,50,50);
+  tesoro.addImage(tesoroImg);
+  tesoro.scale=0.5;
 
   gameOver=createSprite(width/2,height/2-200)
   gameOver.addImage(gameOverImg);
@@ -145,7 +155,10 @@ else if(keyWentUp("space")){
 
  if(vidas <= 0){
   gameState = "END";
+
+  enemigos();
  }
+
   }else if(gameState === "END"){
     restart.visible=true;
     gameOver.visible=true;
@@ -173,6 +186,17 @@ text("Vidas = " + vidas,displayWidth-200,displayHeight/2-280)
 }
 
 //crear funcion para spawnear enemigos
+function enemigos(){
+  if(frameCount %60 === 0){
+    enemy1= createSprite(random(1000, 1300), random(200, 600),40,40);
+    enemy1.addImage(enemyImg);
+    enemy1.velocityX=-7;
+    enemy1.scale = 0.5;
+    enemy1.setCollider("rectangle",0,0,100);
+    enemy1.lifeTime=200;
+
+  }
+}
 
 //crear funcion para spawnear botiquines,recompensas
 
