@@ -4,7 +4,7 @@ var enemy1, enemyImg, enemy_group;
 var botiquin, botiquinImg;
 var laser,laser_group, obstacles, obstaclesImg;
 var bombas, bombasImg;
-var p_d,p_i;
+var p_d,p_i,walk_d,walk_i;
 var gameOver,gameOverImg,restart,restartImg;
 
 var bgSound, laserSound, bombasSound, enemySound, deadSound, winSound,
